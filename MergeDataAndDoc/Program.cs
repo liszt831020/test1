@@ -11,9 +11,10 @@ namespace MergeDataAndDoc
     {
         static void Main(string[] args)
         {
+            string inputFileName1 = "defaultInput.txt";
+            string outputFileName2 = "defaultOutput.txt";
             string inputFileName = "defaultInput.txt";
-            string outputFileName = "defaultOutput.txt";
-            if (args.Length == 2)
+            if (args.Length == 3)
             {
                 inputFileName = args[0];
                 outputFileName = args[1];
