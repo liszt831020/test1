@@ -11,20 +11,27 @@ namespace MergeDataAndDoc
     {
         static void Main(string[] args)
         {
-            string inputFileName1 = "defaultInput.txt";
-            string outputFileName2 = "defaultOutput.txt";
-            string inputFileName = "defaultInput.txt";
+            string inputFileName1 = "data.txt";
+            string outputFileName = "result.txt";
+            string inputFileName2 = "template.txt";
             if (args.Length == 3)
             {
-                inputFileName =  args[0];
-                outputFileName = args[1];
+                inputFileName1 = args[0];
+                inputFileName2 = args[1];
+                outputFileName = args[2];
             }
 
-            using (StreamReader inputFile = new StreamReader(inputFileName))
+            using (StreamReader inputFile1 = new StreamReader(inputFileName1))
+            using (StreamReader inputFile2 = new StreamReader(inputFileName2))
             using(StreamWriter outputFile = new StreamWriter(outputFileName))
             {
                 string line;
-                while((line = inputFile.ReadLine()) != null)
+                while((line = inputFile1.ReadLine()) != null)
+                {
+                    string outputLine = "***" + line;
+                    Console.WriteLine("Write line: " + outputLine);
+                    outputFile.WriteLine(outputLine);
+                } while ((line = inputFile2.ReadLine()) != null)
                 {
                     string outputLine = "***" + line;
                     Console.WriteLine("Write line: " + outputLine);
