@@ -25,16 +25,24 @@ namespace MergeDataAndDoc
             using (StreamReader inputFile2 = new StreamReader(inputFileName2))
             using(StreamWriter outputFile = new StreamWriter(outputFileName))
             {
+                string temline; 
+                temline = inputFile1.ReadLine();
                 string line;
+                Console.WriteLine("data.txt is...");
                 while((line = inputFile1.ReadLine()) != null)
                 {
-                    string outputLine = "***" + line;
-                    Console.WriteLine("Write line: " + outputLine);
+                    string outputLine =line;
+                    string[] value = line.Split('\t');
+                    Console.WriteLine(outputLine);
                     outputFile.WriteLine(outputLine);
-                } while ((line = inputFile2.ReadLine()) != null)
+                    for (int i = 0; i <= 2;i++ )
+                        Console.WriteLine(value[i]);
+                }
+                Console.WriteLine("template.txt is...");
+                while ((line = inputFile2.ReadLine()) != null)
                 {
                     string outputLine = "***" + line;
-                    Console.WriteLine("Write line: " + outputLine);
+                    Console.WriteLine( outputLine);
                     outputFile.WriteLine(outputLine);
                 }
             }
